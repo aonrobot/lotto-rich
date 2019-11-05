@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lotto Rich</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="lotto-rich.css"></link>
+</head>
+<body>
+    <!-- LIFF ID ERROR -->
+    <div id="liffIdErrorMessage" class="uk-hidden">
+        <p>You have not assigned any value for LIFF ID.</p>
+        <p>If you are running the app using Node.js, please set the LIFF ID as an environment variable in your Heroku account follwing the below steps: </p>
+        <code id="code-block">
+            <ol>
+                <li>Go to `Dashboard` in your Heroku account.</li>
+                <li>Click on the app you just created.</li>
+                <li>Click on `Settings` and toggle `Reveal Config Vars`.</li>
+                <li>Set `MY_LIFF_ID` as the key and the LIFF ID as the value.</li>
+                <li>Your app should be up and running. Enter the URL of your app in a web browser.</li>
+            </ol>
+        </code>
+        <p>If you are using any other platform, please add your LIFF ID in the <code>index.html</code> file.</p>
+        <p>For more information about how to add your LIFF ID, see <a href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF app</a>.</p>
+    </div>
+
+    <div id="liffAppContent">
+        <header>
+            <!-- Main Navbar -->
+            <nav class="uk-container uk-navbar">
+                <div class="uk-navbar-left">
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active">
+                            <a href="#">Lotto<strong class="lotto-logo">Rich</strong></a>
+                        </li> 
+                    </ul>
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav uk-visible@s">
+                        <li><a class="uk-text-large" href="https://shubhamjain.co/about/">ประวัติการซื้อ</a></li>
+                        <li><a class="uk-text-large" href="https://shubhamjain.co/">แนะนำ</a></li>
+                    </ul>
+                    <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+                </div>
+            </nav>
+        </header>
+        
+        <div id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas">
+            <div class="uk-offcanvas-bar">
+                <ul class="uk-nav">
+                    <li><a href=""><img id="profilePicture" data-src="" width="32" height="32" alt="" uk-img> <span id="profileName">eiei</span></a></li>
+                    <li><a class="uk-text-large" href="https://shubhamjain.co/about/">ประวัติการซื้อ</a></li>
+                    <li><a class="uk-text-large" href="https://shubhamjain.co/">แนะนำ</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="uk-container liffAppContent">
+            <form class="uk-fieldset">
+                <p class="uk-text-lead">รูปแบบการเล่น</p>
+                <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+                        <li><a href="#">2 ตัวบน</a></li>
+                        <li><a href="#">2 ตัวล่าง</a></li>
+                        <li><a href="#">3 ตัวบน</a></li>
+                        <li><a href="#">3 ตัวล่าง</a></li>
+                    </ul>
+                <p class="uk-legend">เลข</p>
+                <div class="uk-margin">
+                    <input class="uk-input uk-form-width-medium uk-form-large uk-width-12" type="tel" placeholder="Input" min="0" max="99">
+                </div>
+            </form>
+            <button class="uk-button uk-button-success uk-width-1-1 uk-margin-small-bottom">ซื้อเลยรวยแน่!!!</button>
+        </div>
+    </div>
+    
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+
+    <!-- Line LIFF JS -->
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+
+    <script src="lotto-rich.js"></script>
+</body>
+</html>
